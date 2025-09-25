@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'MyFont';
+	src: local('MyFont'), url('./assets/Peristiwa.otf') format('opentype');
+}
+
+.text-header {
+	font-family: 'MyFont', sans-serif;
+}
+
+@layer base {
+	h1 {
+		@apply text-4xl;
+	}
+	h2 {
+		@apply text-3xl;
+	}
+	h3 {
+		@apply text-2xl;
+	}
+	h4 {
+		@apply text-xl;
+	}
+	h5 {
+		@apply text-lg;
+	}
+	h6 {
+		@apply text-base;
+	}
+	p {
+		@apply text-sm;
+	}
+	span {
+		@apply text-xs;
+	}
+}
+
+@keyframes moveImageRight {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1) translateX(5px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
+.image-right img {
+  animation: moveImageRight 5s linear infinite;
+}
+
+@keyframes moveImageLeft {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1) translateX(-5px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
+.image-left img {
+  animation: moveImageLeft 5s linear infinite;
+}
