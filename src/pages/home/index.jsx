@@ -1,30 +1,120 @@
 // ** React Imports
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 // ** Frame Imports
-import flower1 from 'assets/images/flower1.png'
-import flower2 from 'assets/images/flower2.png'
-// import Frame from 'components/frame/home'
+import Conversation from 'components/frame/conversation'
+import Form from 'components/frame/form'
+
+// ** Assets Imports
+import data from 'assets/data/conversation.json'
+import background from 'assets/images/background.jpg'
+import Message from 'components/frame/message'
+import Cover from 'components/frame/cover'
 
 const HomePage = () => {
-	return (
-		<div className="h-screen flex justify-center items-center bg-[#E1E2E2]">
-			<div className="grid gap-4 px-5">
-				<h4 className="text-center text-[#545454]">THE WEDDING OF</h4>
-				<h1 className="text-center text-header text-[#865D3D]">MW & Reza</h1>
-				<h4 className="text-center text-[#545454]">Lokasi Acara : </h4>
-				<div className="grid gap-5">
-					<button className="bg-[#0D2C46] text-white py-2 hover:bg-[#0D2C46]">Lokasi Akad</button>
-					<button className="bg-[#0D2C46] text-white py-2 hover:bg-[#0D2C46]">Lokasi Resepsi</button>
-					<button className="bg-[#0D2C46] text-white py-2 hover:bg-[#0D2C46]">Lokasi Unduh Mantu</button>
-				</div>
-				   <div className="absolute bottom-0 left-0  image-left">
-        <img className="w-36 bg-cover" src={flower1} alt="flower 1" />
-      </div>
-      <div className="absolute bottom-0 right-0 image-right">
-        <img className="w-36 bg-cover" src={flower2} alt="Flower 2" />
-      </div>
+	// ! hooks
+	// * state
+	const [current, setCurrent] = useState(1)
+	const [phase, setPhase] = useState('question')
+	const [formData, setFormData] = useState({})
+	const [showForm, setShowForm] = useState(false)
+	const [gameOver, setGameOver] = useState(false)
+	const [timer, setTimer] = useState(60)
+	const [cover, setCover] = useState(true)
+
+	const item = data.find((d) => d.ids === current)
+
+	// * effect
+	useEffect(() => {
+		if (!item?.form?.time || !showForm || gameOver) return
+
+		if (timer <= 0) {
+			setGameOver(true)
+			return
+		}
+
+		const interval = setInterval(() => setTimer((prev) => prev - 1), 1000)
+		return () => clearInterval(interval)
+	}, [timer, showForm, item, gameOver])
+
+	useEffect(() => {
+		const target = new Date('2025-09-30T21:40:00+07:00')
+
+		const checkTime = () => {
+			const now = new Date()
+			if (now >= target) {
+				window.location.href = 'https://operation-candle.duckxpanda.com'
+			}
+		}
+
+		const interval = setInterval(checkTime, 1000)
+		return () => clearInterval(interval)
+	}, [])
+
+	const getTextWithName = (text) => {
+		if (!text) return ''
+		return text.replace(/\$\{name\}/g, formData['name'] || '')
+	}
+
+	const items = {
+		...item,
+		question: getTextWithName(item.question),
+		answer: getTextWithName(item.answer)
+	}
+
+	const handleNext = (extraData = {}) => {
+		if (Object.keys(extraData).length > 0) {
+			setFormData((prev) => ({ ...prev, ...extraData }))
+			console.log('User Answer:', extraData[item.form.name])
+			console.log('Correct Answer:', item.form.correct)
+			if (item?.form?.correct && extraData[item.form.name] !== item.form.correct) {
+				setGameOver(true)
+				return
+			}
+		}
+
+		const nextItem = data.find((d) => d.ids === current + 1)
+		if (nextItem) {
+			setCurrent(nextItem.ids)
+			setPhase('question')
+			setShowForm(false)
+			setTimer(60)
+		} else {
+			setGameOver(true)
+			console.log('Conversation finished ✅', formData)
+		}
+	}
+
+	return cover ? (
+		<Cover cover={cover} setCover={setCover} />
+	) : (
+		<div
+			className="bg-fixed bg-center bg-cover py-2 overflow-hidden h-screen w-screen flex justify-center"
+			style={{ backgroundImage: `url(${background})` }}>
+			<div className="container px-4 lg:px-0 grid">
+				{showForm && item?.form?.status && <Form item={item.form} onSubmit={handleNext} />}
+				<Conversation
+					data={items}
+					phase={phase}
+					setPhase={setPhase}
+					onDone={() => {
+						if (item?.form?.status && !showForm) setShowForm(true)
+						else if (!item?.form?.status) handleNext()
+					}}
+				/>
 			</div>
+			{gameOver && (
+				<Message
+					onClick={() => {
+						setCurrent(1)
+						setFormData({})
+						setPhase('question')
+						setShowForm(false)
+						setGameOver(false)
+						setTimer(60)
+					}}
+				/>
+			)}
 		</div>
 	)
 }
