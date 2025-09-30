@@ -38,7 +38,7 @@ const HomePage = () => {
 	}, [timer, showForm, item, gameOver])
 
 	useEffect(() => {
-		const target = new Date('2025-09-30T21:40:00+07:00')
+		const target = new Date('2025-10-01T00:00:00+07:00')
 
 		const checkTime = () => {
 			const now = new Date()
