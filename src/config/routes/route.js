@@ -3,7 +3,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 // ** Pages Imports
-import HomePage from 'pages/home'
+import Home from 'pages/home'
 import Page404 from 'pages/404'
 
 // ** Sub-Route Imports
@@ -11,7 +11,7 @@ import Page404 from 'pages/404'
 const RoutePage = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<HomePage />} />
+			<Route path="/" element={<Home />} />
 			<Route path="*" element={<Page404 />} />
 		</Routes>
 	)

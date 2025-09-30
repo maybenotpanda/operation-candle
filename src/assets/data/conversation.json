@@ -1,0 +1,276 @@
+[
+	{
+		"ids": 1,
+		"question": "Perkenalkan nama saya F.R.I.D.A.Y.",
+		"answer": "Hai F.R.I.D.A.Y."
+	},
+	{
+		"ids": 2,
+		"question": "Sebelum kita mulai, bolehkah saya berkenalan dengan Anda?",
+		"answer": "Tentu saja!",
+		"form": {
+			"name": "name",
+			"status": true,
+			"label": "Siapa nama anda?",
+			"placeholder": "tuliskan nama anda...",
+			"type": "input"
+		}
+	},
+	{
+		"ids": 3,
+		"question": null,
+		"answer": "Nama saya ${name}. Senang berkenalan dengan Anda"
+	},
+	{
+		"ids": 4,
+		"question": "Wah nama yang bagus",
+		"answer": "Terima kasih"
+	},
+	{
+		"ids": 5,
+		"question": "Bagaimana hari ini ${name}?",
+		"answer": null,
+		"form": {
+			"name": "mood",
+			"status": true,
+			"label": "Bagimana Kabar anda?",
+			"options": [
+				{
+					"label": "Baik",
+					"value": "good"
+				},
+				{
+					"label": "Kurang Baik",
+					"value": "bad"
+				}
+			],
+			"type": "radio"
+		}
+	},
+	{
+		"ids": 6,
+		"question": "Senang mendengarnya",
+		"answer": "Terima kasih"
+	},
+	{
+		"ids": 7,
+		"question": "Hai ${name},",
+		"answer": "Ya?"
+	},
+	{
+		"ids": 8,
+		"question": "saya ingin anda membantu saya dalam menyelesaikan pertanyaan ini.",
+		"answer": null
+	},
+	{
+		"ids": 9,
+		"question": "Apakah anda bisa membantu saya?",
+		"answer": "Ya tentu, apa pertanyaannya?"
+	},
+	{
+		"ids": 10,
+		"question": "Apa huruf pertama di dalam abjad alphabet?",
+		"answer": null,
+		"form": {
+			"name": "question",
+			"status": true,
+			"label": "Apa huruf pertama di dalam abjad alphabet?",
+			"options": [
+				{
+					"label": "A. B",
+					"value": "A"
+				},
+				{
+					"label": "B. C",
+					"value": "B"
+				},
+				{
+					"label": "C. B",
+					"value": "C"
+				},
+				{
+					"label": "D. A",
+					"value": "A"
+				}
+			],
+			"type": "radio",
+			"correct": "A",
+			"time": true
+		}
+	},
+	{
+		"ids": 11,
+		"question": null,
+		"answer": "D"
+	},
+	{
+		"ids": 12,
+		"question": "Wah, kamu cukup pintar juga ya",
+		"answer": null
+	},
+	{
+		"ids": 13,
+		"question": "Pertanyaan selanjutnya",
+		"answer": null
+	},
+	{
+		"ids": 14,
+		"question": "Huruf Pertama Abjad = A, Huruf kedua Abjad = B, Huruf ketiga abjad?",
+		"answer": null,
+		"form": {
+			"name": "question",
+			"status": true,
+			"label": "Huruf Pertama Abjad = A, Huruf kedua Abjad = B, Huruf ketiga abjad?",
+			"options": [
+				{
+					"label": "J. J",
+					"value": "J"
+				},
+				{
+					"label": "B. C",
+					"value": "C"
+				},
+				{
+					"label": "C. B",
+					"value": "B"
+				},
+				{
+					"label": "D. D",
+					"value": "D"
+				}
+			],
+			"type": "radio",
+			"correct": "J",
+			"time": true
+		}
+	},
+	{
+		"ids": 15,
+		"question": null,
+		"answer": "J"
+	},
+	{
+		"ids": 16,
+		"question": "Wah, kamu cukup hebat sepertinya",
+		"answer": null
+	},
+	{
+		"ids": 17,
+		"question": "Pertanyaan selanjutnya",
+		"answer": null
+	},
+	{
+		"ids": 18,
+		"question": "Mobil apa yang sedang sakit?",
+		"answer": null,
+		"form": {
+			"name": "question",
+			"status": true,
+			"label": "Mobil apa yang sedang sakit?",
+			"placeholder": "tuliskan jawaban anda...",
+			"type": "input",
+			"correct": "Kijang-Kijang",
+			"time": true
+		}
+	},
+	{
+		"ids": 19,
+		"question": null,
+		"answer": "Kijang-Kijang"
+	},
+	{
+		"ids": 20,
+		"question": "Wah, kamu cukup keren",
+		"answer": null
+	},
+	{
+		"ids": 21,
+		"question": "Pertanyaan selanjutnya",
+		"answer": null
+	},
+	{
+		"ids": 22,
+		"question": "Mungkin ini akan sedikit sulit",
+		"answer": null
+	},
+	{
+		"ids": 23,
+		"question": "Huruf Pertama Abjad = A, Huruf kedua Abjad = B, Huruf ketiga abjad?",
+		"answer": null,
+		"form": {
+			"name": "question",
+			"status": true,
+			"label": "Kalau es krim bisa berbicara, apa yang akan ia katakan ketika meleleh?",
+			"options": [
+				{
+					"label": "Tolong jangan dimakan!",
+					"value": "A"
+				},
+				{
+					"label": "Aku butuh AC!",
+					"value": "B"
+				},
+				{
+					"label": "Hidupku singkat…",
+					"value": "C"
+				},
+				{
+					"label": "Mmmm enak ya?",
+					"value": "D"
+				}
+			],
+			"type": "radio",
+			"correct": "C",
+			"time": true
+		}
+	},
+	{
+		"ids": 24,
+		"question": null,
+		"answer": "C"
+	},
+	{
+		"ids": 25,
+		"question": "Tidak aku sangka kamu bisa menjawabnya dengan benar",
+		"answer": null
+	},
+	{
+		"ids": 26,
+		"question": "Baiklah selanjutnya",
+		"answer": null
+	},
+	{
+		"ids": 27,
+		"question": "Telor telor apa yang dipinggir jalan?",
+		"answer": null,
+		"form": {
+			"name": "question",
+			"status": true,
+			"label": "Telor telor apa yang dipinggir jalan?",
+			"placeholder": "tuliskan jawaban anda...",
+			"type": "input",
+			"correct": "trotoar",
+			"time": true
+		}
+	},
+	{
+		"ids": 28,
+		"question": "Sepertinya kamu cukup hebat di permainan ini",
+		"answer": null
+	},
+	{
+		"ids": 27,
+		"question": "Apakah kamu ingin bermain game lainnya?",
+		"answer": "Tidak, terima kasih"
+	},
+	{
+		"ids": 28,
+		"question": "Baiklah semoga setelah permainan ini kamu tidak menyesal",
+		"answer": "Menyesal sedikit"
+	},
+	{
+		"ids": 29,
+		"question": "I Love you more",
+		"answer": null
+	}
+]
