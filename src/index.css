@@ -28,3 +28,7 @@
 		@apply text-xs;
 	}
 }
+
+.font-pixel {
+	font-family: 'Press Start 2P', monospace;
+}
